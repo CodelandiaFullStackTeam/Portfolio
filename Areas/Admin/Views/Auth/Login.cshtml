@@ -1,0 +1,64 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Index</title>
+    <link href="~/assets/css/app.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="auth-full-height container d-flex flex-column justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <div class="card row mx-0 flex-row overflow-hidden">
+                    <div class="col-md-4 bg-size-cover d-flex align-items-center p-4" style="background-image: url('/assets/images/others/bg-2.jpg');">
+                        <div>
+                            <div class="mb-5">
+                                @*   <div class="logo">
+                                <img alt="logo" class="img-fluid" src="~/assets/images/logo/in-stock.png" style="height: 100px;">
+                                </div>*@
+
+                            </div>
+                            <h3 class="text-white">Portfolio admin panel</h3>
+                            <p class="text-white mt-4 mb-5 o-75">Developed by:Mirza Khalilov</p>
+                        </div>
+                    </div>
+                    <div class="col-md-8 px-0">
+                        <div class="card-body">
+                            <div class="my-5 mx-auto" style="max-width: 400px;">
+                                <div class="mb-3">
+                                    <h3>Portfolio Admin panel</h3>
+                                </div>
+                                <form asp-action="Login" asp-controller="Auth" method="post">
+                                    <div class="form-group mb-3">
+                                        <label asp-for="Username" class="form-label">İstifadəçi adı</label>
+                                        <input asp-for="Username" name="Username" class="form-control" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label d-flex justify-content-between">
+                                            <span>Şifrə</span>
+                                        </label>
+                                        <div class="form-group input-affix flex-column">
+                                            <label asp-for="Password" class="d-none">Password</label>
+                                            <input asp-for="Password" name="Password" formcontrolname="password" class="form-control" type="password">
+                                            <i class="suffix-icon feather cursor-pointer text-dark icon-eye" ng-reflect-ng-class="icon-eye"></i>
+                                        </div>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary w-100" value="Log In" />
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/js/vendors.min.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+</body>
+</html>

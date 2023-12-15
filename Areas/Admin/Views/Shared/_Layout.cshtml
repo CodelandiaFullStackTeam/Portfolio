@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SMS.WebAppMVC</title>
+    <link rel="stylesheet" href="~/assets/css/app.min.css" asp-append-version="true" />
+    @*<script type="text/javascript">
+    function preventBack() { window.history.forward(); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+    </script>*@
+</head>
+<body>
+    <div class="layout">
+        <div class="layout">
+            <div class="vertical-layout">
+                <div class="header-text-dark header-nav layout-vertical">
+                    <div class="header-nav-wrap">
+                        <div class="header-nav-left">
+                            <div class="header-nav-item desktop-toggle">
+                                <div class="header-nav-item-select cursor-pointer">
+                                    <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                                </div>
+                            </div>
+                            <div class="header-nav-item mobile-toggle">
+                                <div class="header-nav-item-select cursor-pointer">
+                                    <i class="nav-icon feather icon-menu icon-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-nav-right">
+                            <label>Username:</label>
+                            <a asp-action="Logout" asp-controller="Auth">Logout</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="side-nav vertical-menu nav-menu-light scrollable">
+
+                    <ul class="nav-menu">
+                        <li class="nav-menu-item">
+                            <a href="Default.aspx">
+                                <i class="feather icon-mail"></i>
+                                <span class="nav-menu-item-title">Home page</span>
+                            </a>
+                        </li>
+                        <li class="nav-group-title">Admin Tool</li>
+                        <li class="nav-menu-item">
+                            <a href="Users.aspx">
+                                <i class="feather icon-mail"></i>
+                                <span class="nav-menu-item-title">Users</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="content">
+                    <div class="main">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/assets/js/vendors.min.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+</body>
+</html>

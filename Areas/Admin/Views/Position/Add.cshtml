@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Position</h1>
+
+<form method="post" asp-action="Add" asp-controller="Position">
+    <div class="row mt-3">
+        <div class="col-6">
+            <label>Name</label>
+        </div>
+        <div class="col-6">
+            <input name="Name" type="text" class="form-control" asp-name-for="Name" />
+        </div>
+    </div>
+    <div class="row mt-3">
+        <input type="submit" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,86 @@
+﻿@using Portfolio.Areas.Admin.Models;
+@model List<Position>;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-3">
+    <div class="col-3">
+        @*<a href="Position/Add" class="btn btn-primary">Add new</a>*@
+        @Html.ActionLink("Add new","Add","Position",new {},new {
+            @class = "btn btn-primary"
+        })
+    </div>
+    <div class="col-4">
+        <label for="rbAll">All</label>
+        <input type="radio" id="rbAll" name="filterGroup" class="form-check-input" value="0" />
+        <label for="rbActive">Active</label>
+        <input type="radio" id="rbActive" name="filterGroup" class="form-check-input" value="1" checked />
+        <label for="rbDeleted">Deleted</label>
+        <input type="radio" id="rbDeleted" name="filterGroup" class="form-check-input" value="2" />
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped border-dark">
+                <thead>
+                    <tr>
+                        <th colspan="2" scope="col">#</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Edit","Edit","Position",new {@id =item.ID},new { @class = "btn btn-success"})
+                            </td>
+                            <td>
+                                @Html.ActionLink("Remove","Delete","Position",new{@id = item.ID},new {
+                                    @class = "btn btn-danger"
+                                })
+                            </td>
+                            <td>
+                                @item.Name
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    const filterData = () => {
+
+        let selectedRadio = Array.from(radios).find(x => x.checked).value;
+
+        $.ajax({
+            url: "GetDataWithFilter/",
+            data: { condition: selectedRadio },
+            type: "POST",
+            dataType: "text", // expected data type of the response
+            success: function (data) {
+                // Handle the successful response here
+                //console.log("Data received:", data);
+                //let span = document.getElementById('resName');
+                //span.textContent = data.firstName + " " + data.lastName;
+            },
+            error: function (xhr, status, error) {
+                // Handle errors here
+                console.error("Error:", status, error);
+            }
+        });
+    }
+    const radios = document.querySelectorAll('input[type=radio]');
+    radios.forEach(x=>{
+        x.addEventListener('click', filterData);
+    });
+
+   
+
+</script>
+
